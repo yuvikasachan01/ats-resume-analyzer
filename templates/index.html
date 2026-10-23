@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Resume Analyzer</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ── SECTION 1: Hero ───────────────────────────────────────────────────── -->
+<section class="page-section active" id="section-hero">
+    <nav class="navbar">
+        <div class="logo">ATS.Analyze</div>
+        <div class="nav-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <span>by Yuvika &middot; Sarthak &middot; Prakhar</span>
+        </div>
+    </nav>
+    <div class="section-inner hero-inner">
+        <h1>Resume ATS<br><em>Analyzer</em></h1>
+        <p class="subtitle">Upload your resume to get an ATS compatibility score. Optionally add a job description to see exactly what you are missing and how to close the gap.</p>
+        <button class="cta-btn" onclick="goTo('section-upload')">Get Started &rarr;</button>
+    </div>
+    <div class="step-indicator">Step 1</div>
+</section>
+
+<!-- ── SECTION 2: Upload ─────────────────────────────────────────────────── -->
+<section class="page-section" id="section-upload">
+    <div class="section-inner upload-inner">
+        <p class="section-tag">Step 2 / Upload</p>
+        <h2>Upload your resume</h2>
+        <p class="subtitle">Accepted: <strong>PDF, DOCX</strong> &nbsp;&middot;&nbsp; Max: <strong>5 MB</strong></p>
+
+        <form id="uploadForm">
+            <!-- Resume upload -->
+            <input type="file" id="resumeFile" name="file" accept=".pdf,.docx" required class="hidden-input">
+            <label for="resumeFile" class="drop-zone" id="resumeDropZone">
+                <span class="drop-icon">[ + ]</span>
+                <span id="resumeFileName">Resume &mdash; click to select or drag and drop</span>
+            </label>
+
+            <!-- Optional JD section -->
+            <div class="jd-toggle-section">
+                <label class="toggle-label">
+                    <input type="checkbox" id="jdToggle"> Include a Job Description for gap analysis
+                </label>
+            </div>
+
+            <div id="jdInputArea" class="jd-input-area hidden">
+                <div class="jd-tabs">
+                    <button type="button" class="tab-btn active" id="tabPaste" onclick="switchJdTab('paste')">Paste text</button>
+                    <button type="button" class="tab-btn" id="tabFile" onclick="switchJdTab('file')">Upload file</button>
+                </div>
+                <div id="jdPastePanel">
+                    <textarea id="jdText" placeholder="Paste the job description here..." rows="8"></textarea>
+                </div>
+                <div id="jdFilePanel" class="hidden">
+                    <input type="file" id="jdFile" accept=".pdf,.docx,.txt" class="hidden-input">
+                    <label for="jdFile" class="drop-zone small" id="jdDropZone">
+                        <span class="drop-icon">[ + ]</span>
+                        <span id="jdFileName">JD file &mdash; PDF, DOCX, or TXT</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="cta-btn">Analyze &rarr;</button>
+        </form>
+
+        <div id="loading" class="loading-state hidden">
+            <div class="pulse">&#9711;</div>
+            <p id="loadingText">Analyzing your resume...</p>
+        </div>
+        <div id="errorBox" class="error-box hidden"></div>
+    </div>
+    <button class="back-btn" onclick="goTo('section-hero')">&larr; Back</button>
+    <div class="step-indicator">Step 2</div>
+</section>
+
+<!-- ── SECTION 3: ATS Score ──────────────────────────────────────────────── -->
+<section class="page-section" id="section-score">
+    <div class="section-inner score-inner">
+        <p class="section-tag">Step 3 / ATS Score</p>
+        <h2>Your ATS Score</h2>
+        <div class="score-ring">
+            <svg viewBox="0 0 200 200" class="ring-svg">
+                <circle class="ring-bg" cx="100" cy="100" r="80"/>
+                <circle class="ring-fill" id="atsRingFill" cx="100" cy="100" r="80"
+                    stroke-dasharray="502.65" stroke-dashoffset="502.65"/>
+            </svg>
+            <div class="score-number" id="atsScoreDisplay">0</div>
+        </div>
+        <p class="score-label">out of 100</p>
+
+        <div class="score-feedback">
+            <div class="feedback-card" id="card-missing">
+                <div class="card-header"><h4>Missing Sections</h4></div>
+                <ul id="missingList"></ul>
+            </div>
+            <div class="feedback-card" id="card-suggestions">
+                <div class="card-header"><h4>Improvement Suggestions</h4></div>
+                <ul id="suggestionsList"></ul>
+            </div>
+            <div class="feedback-card" id="card-spelling">
+                <div class="card-header"><h4>Spelling and Grammar</h4></div>
+                <ul id="spellingList"></ul>
+            </div>
+        </div>
+
+        <!-- Shown only when JD was provided -->
+        <div id="jdNextBtn" class="hidden" style="margin-top:2rem;">
+            <button class="cta-btn" onclick="goTo('section-jd-score')">See JD Match Analysis &rarr;</button>
+        </div>
+        <button class="cta-btn secondary" onclick="resetApp()">Start Over</button>
+    </div>
+    <div class="step-indicator" id="step3Label">Step 3</div>
+</section>
+
+<!-- ── SECTION 4: JD Match Score ─────────────────────────────────────────── -->
+<section class="page-section" id="section-jd-score">
+    <div class="section-inner score-inner">
+        <p class="section-tag">Step 4 / JD Match</p>
+        <h2>JD Match Score</h2>
+        <div class="score-ring">
+            <svg viewBox="0 0 200 200" class="ring-svg">
+                <circle class="ring-bg" cx="100" cy="100" r="80"/>
+                <circle class="ring-fill" id="jdRingFill" cx="100" cy="100" r="80"
+                    stroke-dasharray="502.65" stroke-dashoffset="502.65"/>
+            </svg>
+            <div class="score-number" id="jdScoreDisplay">0</div>
+        </div>
+        <p class="score-label">out of 100</p>
+        <p class="exp-level">Detected experience level: <strong id="expLevel">-</strong></p>
+
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h4>Matched Skills</h4>
+                <div id="matchedChips" class="chip-row"></div>
+            </div>
+            <div class="skill-group">
+                <h4>Missing Skills</h4>
+                <div id="missingChips" class="chip-row"></div>
+            </div>
+            <div class="skill-group">
+                <h4>Partial Matches</h4>
+                <div id="partialChips" class="chip-row"></div>
+            </div>
+        </div>
+
+        <button class="cta-btn" onclick="goTo('section-skill-check')">Review Missing Skills &rarr;</button>
+    </div>
+    <div class="step-indicator">Step 4</div>
+</section>
+
+<!-- ── SECTION 5: Skill Checklist ───────────────────────────────────────── -->
+<section class="page-section" id="section-skill-check">
+    <div class="section-inner">
+        <p class="section-tag">Step 5 / Skill Checklist</p>
+        <h2>Which skills do you already have?</h2>
+        <p class="subtitle">Check the ones you know but have not listed on your resume yet.</p>
+        <div id="skillCheckList" class="skill-check-list"></div>
+        <button class="cta-btn" onclick="handleSkillChecks()" id="skillCheckBtn">See Learning Roadmap &rarr;</button>
+    </div>
+    <div class="step-indicator">Step 5</div>
+</section>
+
+<!-- ── SECTION 6: Learning Roadmap ──────────────────────────────────────── -->
+<section class="page-section" id="section-roadmap">
+    <div class="feedback-inner">
+        <p class="section-tag">Step 6 / Learning Roadmap</p>
+        <h2>Your Learning Roadmap</h2>
+        <p class="subtitle">Skills you marked as not yet learned, ordered by priority in the job description.</p>
+        <div id="roadmapCards" class="roadmap-cards"></div>
+        <button class="cta-btn secondary" onclick="resetApp()" style="margin-top:2rem;">Analyze Another Resume</button>
+    </div>
+
+    <footer>
+        <p>Developed by &nbsp;<strong>Yuvika Sachan</strong> &nbsp;&middot;&nbsp; <strong>Sarthak Srivastava</strong> &nbsp;&middot;&nbsp; <strong>Prakhar Shukla</strong></p>
+        <p><a href="/privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms">Terms and Conditions</a></p>
+        <p class="copyright">&copy; 2026 ATS.Analyze. All rights reserved.</p>
+    </footer>
+    <div class="step-indicator">Step 6</div>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &mdash; ATS.Analyze</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        html, body { overflow: auto; height: auto; }
+        body { padding: 0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="/" style="text-decoration:none;">ATS.Analyze</a>
+        <div class="nav-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms and Conditions</a>
+        </div>
+    </nav>
+
+    <div class="legal-inner" style="margin: 0 auto;">
+        <h1>Privacy Policy</h1>
+        <span class="last-updated">Last updated: October 20, 2026</span>
+
+        <h2>1. What We Collect</h2>
+        <p>When you upload a resume for analysis, we receive the file you submit. We extract the text content of that file to perform the analysis. We do not store the file or its contents on our servers after the analysis is complete. The file is deleted immediately after text extraction.</p>
+
+        <h2>2. How We Use Your Data</h2>
+        <p>The text extracted from your resume is sent to the Google Gemini API to generate an ATS compatibility score, identify missing elements, and suggest improvements. This processing happens in real time. We do not use your resume data to train any models, and we do not share it with any third parties beyond the Google Gemini API.</p>
+
+        <h2>3. Third-Party Services</h2>
+        <p>This application uses the Google Gemini API to analyze resume content. By using this service, your resume text is processed by Google's API infrastructure. Please refer to Google's Privacy Policy for information on how Google handles data sent to its APIs.</p>
+
+        <h2>4. Cookies and Tracking</h2>
+        <p>This application does not use cookies, tracking pixels, analytics scripts, or any form of user tracking.</p>
+
+        <h2>5. Data Retention</h2>
+        <p>We do not retain any uploaded files or resume content. All data is processed in memory and discarded after the response is returned to your browser.</p>
+
+        <h2>6. Your Rights</h2>
+        <p>Because we do not store any personal data, there is no stored data to access, correct, or delete. If you have questions about this policy, contact us through the information provided below.</p>
+
+        <h2>7. Contact</h2>
+        <p>If you have questions about this Privacy Policy, please contact the development team via your institution or project supervisor.</p>
+    </div>
+
+    <footer style="position:static; margin-top:4rem;">
+        <p><a href="/">Back to Home</a> &nbsp;&middot;&nbsp; <a href="/terms">Terms and Conditions</a></p>
+        <p class="copyright">&copy; 2026 ATS.Analyze. All rights reserved.</p>
+    </footer>
+</body>
+</html>
