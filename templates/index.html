@@ -13,17 +13,134 @@
 <!-- ── SECTION 1: Hero ───────────────────────────────────────────────────── -->
 <section class="page-section active" id="section-hero">
     <nav class="navbar">
-        <div class="logo">ATS.Analyze</div>
+        <a class="logo" href="/" style="text-decoration:none;">ATS.Analyze</a>
         <div class="nav-links">
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
-            <span>by Yuvika &middot; Sarthak &middot; Prakhar</span>
         </div>
     </nav>
-    <div class="section-inner hero-inner">
-        <h1>Resume ATS<br><em>Analyzer</em></h1>
-        <p class="subtitle">Upload your resume to get an ATS compatibility score. Optionally add a job description to see exactly what you are missing and how to close the gap.</p>
-        <button class="cta-btn" onclick="goTo('section-upload')">Get Started &rarr;</button>
+
+    <!-- Decorative background elements matching design -->
+    <div class="hero-bg-decorations">
+        <!-- Top-Right Arc & Dot -->
+        <svg class="corner-arc tr-arc" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="280" cy="20" r="180" stroke="#9FAFA1" stroke-width="1.2" opacity="0.45"/>
+            <circle cx="120" cy="115" r="5" fill="#6E8070"/>
+        </svg>
+        <div class="corner-bloom tr-bloom"></div>
+
+        <!-- Bottom-Left Arc & Dot -->
+        <svg class="corner-arc bl-arc" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="300" r="220" stroke="#9FAFA1" stroke-width="1.2" opacity="0.45"/>
+            <circle cx="175" cy="148" r="5" fill="#6E8070"/>
+        </svg>
+        <div class="corner-bloom bl-bloom"></div>
+
+        <!-- Bottom-Right Sparkle & Vertical Line -->
+        <div class="hero-br-decor">
+            <svg class="hero-star" width="22" height="22" viewBox="0 0 24 24" fill="#6E8070">
+                <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8L12 0Z"/>
+            </svg>
+            <div class="hero-br-line"></div>
+        </div>
+    </div>
+
+    <div class="hero-layout">
+
+        <!-- Left: Floating Stacked Resume Card & Orbit Lines -->
+        <div class="hero-resume-card-wrap">
+            <!-- Background Orbit ellipses -->
+            <svg class="hero-orbit" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="190" cy="170" rx="175" ry="110" stroke="#9FAFA1" stroke-width="1.2" opacity="0.45"/>
+                <ellipse cx="190" cy="170" rx="140" ry="80" stroke="#9FAFA1" stroke-width="1" opacity="0.3" transform="rotate(-15 190 170)"/>
+                <circle cx="340" cy="210" r="5.5" fill="#6E8070"/>
+                <circle cx="45" cy="130" r="4.5" fill="#6E8070"/>
+            </svg>
+
+            <!-- Stacked depth card (faint back layer) -->
+            <div class="hero-resume-card-backdrop"></div>
+
+            <!-- Foreground card -->
+            <div class="hero-resume-card">
+                <div class="resume-card-header">
+                    <svg width="15" height="17" viewBox="0 0 16 18" fill="none">
+                        <rect x="1" y="1" width="14" height="16" rx="2" stroke="#6E8070" stroke-width="1.5"/>
+                        <path d="M4 5H12M4 8.5H12M4 12H9" stroke="#6E8070" stroke-width="1.3" stroke-linecap="round"/>
+                    </svg>
+                    <span class="resume-card-filename">Resume.pdf</span>
+                </div>
+                <div class="resume-card-body">
+                    <!-- Left: Text lines -->
+                    <div class="resume-card-lines">
+                        <div class="rc-line rc-line-long"></div>
+                        <div class="rc-line rc-line-mid"></div>
+                        <div class="rc-line rc-line-short"></div>
+                        <div class="rc-line rc-line-long"></div>
+                        <div class="rc-line rc-line-mid"></div>
+                        <div class="rc-line rc-line-short"></div>
+                    </div>
+                    <!-- Right: Circular ATS Score Ring -->
+                    <div class="resume-score-badge">
+                        <svg class="score-ring-svg" viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="26" fill="none" stroke="#E3E0D8" stroke-width="4.5"/>
+                            <circle cx="32" cy="32" r="26" fill="none" stroke="#6E8070" stroke-width="4.5"
+                                stroke-dasharray="163.36" stroke-dashoffset="21.2"
+                                stroke-linecap="round" transform="rotate(-90 32 32)"/>
+                        </svg>
+                        <div class="score-badge-text">
+                            <span class="score-badge-num">87%</span>
+                            <span class="score-badge-lbl">ATS Score</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center: Headline + Subtitle + CTA -->
+        <div class="hero-center">
+            <h1>Resume ATS<br><em>Analyzer</em></h1>
+            <p class="subtitle">Upload your resume to get an ATS compatibility score. Optionally add a job description to see exactly what you are missing and how to close the gap.</p>
+            <button class="cta-btn hero-cta-btn" onclick="goTo('section-upload')">Get Started &rarr;</button>
+        </div>
+
+        <!-- Right: Connected Feature List -->
+        <div class="hero-features">
+            <div class="hero-feature-item">
+                <div class="hf-icon">
+                    <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
+                        <rect x="2" y="9" width="3" height="7" rx="0.75" fill="#6E8070"/>
+                        <rect x="7.5" y="5.5" width="3" height="10.5" rx="0.75" fill="#6E8070"/>
+                        <rect x="13" y="2" width="3" height="14" rx="0.75" fill="#6E8070"/>
+                    </svg>
+                </div>
+                <span>Check ATS Score</span>
+            </div>
+
+            <div class="hf-connector"></div>
+
+            <div class="hero-feature-item">
+                <div class="hf-icon">
+                    <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
+                        <circle cx="7.5" cy="7.5" r="5.5" stroke="#6E8070" stroke-width="1.6"/>
+                        <line x1="11.5" y1="11.5" x2="16" y2="16" stroke="#6E8070" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span>Find Missing Keywords</span>
+            </div>
+
+            <div class="hf-connector"></div>
+
+            <div class="hero-feature-item">
+                <div class="hf-icon">
+                    <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
+                        <path d="M9 2C6.24 2 4 4.24 4 7C4 8.7 4.85 10.2 6.18 11.12C6.72 11.5 7 12.1 7 12.75V13.5C7 14.05 7.45 14.5 8 14.5H10C10.55 14.5 11 14.05 11 13.5V12.75C11 12.1 11.28 11.5 11.82 11.12C13.15 10.2 14 8.7 14 7C14 4.24 11.76 2 9 2Z" stroke="#6E8070" stroke-width="1.4"/>
+                        <line x1="7.5" y1="16" x2="10.5" y2="16" stroke="#6E8070" stroke-width="1.4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span>Get Actionable Tips</span>
+            </div>
+        </div>
+
     </div>
     <div class="step-indicator">Step 1</div>
 </section>
@@ -51,6 +168,11 @@
             </div>
 
             <div id="jdInputArea" class="jd-input-area hidden">
+                <div class="company-input-group">
+                    <label for="companyNameInput">Company Name <span class="optional-pill">Optional</span></label>
+                    <input type="text" id="companyNameInput" name="company_name" placeholder="e.g. Google, Microsoft, Amazon, Infosys, Deloitte..." class="text-input">
+                    <span class="field-hint">Adds company profile, culture insights &amp; real past interview questions</span>
+                </div>
                 <div class="jd-tabs">
                     <button type="button" class="tab-btn active" id="tabPaste" onclick="switchJdTab('paste')">Paste text</button>
                     <button type="button" class="tab-btn" id="tabFile" onclick="switchJdTab('file')">Upload file</button>
@@ -115,6 +237,28 @@
             <button class="cta-btn" onclick="goTo('section-jd-score')">See JD Match Analysis &rarr;</button>
         </div>
         <button class="cta-btn secondary" onclick="resetApp()">Start Over</button>
+
+        <!-- End of Analysis Feedback Card (for ATS-only flow) -->
+        <div class="feedback-submission-card" id="atsOnlyFeedbackCard" style="margin-top: 3rem;">
+            <h3>Was this analysis helpful?</h3>
+            <p class="subtitle" style="margin-bottom: 1.25rem;">Rate your ATS score report and help us improve.</p>
+            <div class="star-rating" data-target="ats">
+                <button type="button" class="star-btn" data-value="1" onclick="setStarRating('ats', 1)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="2" onclick="setStarRating('ats', 2)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="3" onclick="setStarRating('ats', 3)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="4" onclick="setStarRating('ats', 4)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="5" onclick="setStarRating('ats', 5)">&#9733;</button>
+            </div>
+            <div class="feedback-tags" id="atsTags">
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Accurate Score</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Clear Suggestions</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Fast Analysis</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Needs Improvement</button>
+            </div>
+            <textarea id="atsFeedbackText" rows="3" placeholder="Tell us what you liked or how we can improve..."></textarea>
+            <button type="button" class="cta-btn" onclick="submitAnalysisFeedback('ats')">Submit Feedback</button>
+            <p id="atsFeedbackStatus" class="feedback-status-msg hidden"></p>
+        </div>
     </div>
     <div class="step-indicator" id="step3Label">Step 3</div>
 </section>
@@ -135,6 +279,28 @@
         <p class="score-label">out of 100</p>
         <p class="exp-level">Detected experience level: <strong id="expLevel">-</strong></p>
 
+        <!-- Company Overview Card -->
+        <div id="companyOverviewCard" class="company-card hidden">
+            <div class="company-card-header">
+                <div>
+                    <span class="company-badge" id="companyIndustryBadge">Industry</span>
+                    <h3 id="companyCardName">Company Name</h3>
+                </div>
+                <button type="button" class="view-interview-btn" onclick="goTo('section-interview-prep')">Past Interview Questions &rarr;</button>
+            </div>
+            <p id="companyAboutText" class="company-about"></p>
+            <div class="company-details-grid">
+                <div class="company-subcard">
+                    <strong>Work Culture &amp; Values</strong>
+                    <p id="companyCultureText" class="culture-text"></p>
+                </div>
+                <div class="company-subcard">
+                    <strong>Key Tech Stack Focus</strong>
+                    <div id="companyTechChips" class="chip-row"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="skills-grid">
             <div class="skill-group">
                 <h4>Matched Skills</h4>
@@ -150,7 +316,10 @@
             </div>
         </div>
 
-        <button class="cta-btn" onclick="goTo('section-skill-check')">Review Missing Skills &rarr;</button>
+        <div class="action-btn-row">
+            <button class="cta-btn" onclick="goTo('section-skill-check')">Review Missing Skills &rarr;</button>
+            <button class="cta-btn secondary" onclick="goTo('section-interview-prep')">Interview Prep &rarr;</button>
+        </div>
     </div>
     <div class="step-indicator">Step 4</div>
 </section>
@@ -159,8 +328,8 @@
 <section class="page-section" id="section-skill-check">
     <div class="section-inner">
         <p class="section-tag">Step 5 / Skill Checklist</p>
-        <h2>Which skills do you already have?</h2>
-        <p class="subtitle">Check the ones you know but have not listed on your resume yet.</p>
+        <h2>Which skills do you need to learn?</h2>
+        <p class="subtitle">Check the skills you do not know yet. We will build a learning roadmap for those.</p>
         <div id="skillCheckList" class="skill-check-list"></div>
         <button class="cta-btn" onclick="handleSkillChecks()" id="skillCheckBtn">See Learning Roadmap &rarr;</button>
     </div>
@@ -173,16 +342,284 @@
         <p class="section-tag">Step 6 / Learning Roadmap</p>
         <h2>Your Learning Roadmap</h2>
         <p class="subtitle">Skills you marked as not yet learned, ordered by priority in the job description.</p>
-        <div id="roadmapCards" class="roadmap-cards"></div>
-        <button class="cta-btn secondary" onclick="resetApp()" style="margin-top:2rem;">Analyze Another Resume</button>
-    </div>
 
-    <footer>
-        <p>Developed by &nbsp;<strong>Yuvika Sachan</strong> &nbsp;&middot;&nbsp; <strong>Sarthak Srivastava</strong> &nbsp;&middot;&nbsp; <strong>Prakhar Shukla</strong></p>
-        <p><a href="/privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms">Terms and Conditions</a></p>
-        <p class="copyright">&copy; 2026 ATS.Analyze. All rights reserved.</p>
-    </footer>
+        <!-- Selected Topics to Learn Live Queue -->
+        <div id="selectedTopicsQueue" class="selected-topics-card hidden">
+            <div class="selected-topics-header">
+                <div>
+                    <h4>🎯 Topics Selected to Learn (<span id="selectedCount">0</span>)</h4>
+                    <span class="hint-text">Check any topic below to add it here with direct YouTube learning resources</span>
+                </div>
+                <button type="button" class="mini-btn" onclick="clearSelectedTopics()">Clear Selection</button>
+            </div>
+            <div id="selectedTopicsList" class="selected-topics-list"></div>
+        </div>
+
+        <div id="roadmapCards" class="roadmap-cards"></div>
+
+        <div class="action-btn-row" style="margin-top:2rem;">
+            <button class="cta-btn" onclick="goTo('section-interview-prep')">Past Interview Questions &rarr;</button>
+            <button class="cta-btn secondary" onclick="resetApp()">Analyze Another Resume</button>
+        </div>
+
+        <!-- End of Analysis Feedback Card -->
+        <div class="feedback-submission-card" id="roadmapFeedbackCard" style="margin-top: 3rem;">
+            <h3>Was this analysis helpful?</h3>
+            <p class="subtitle" style="margin-bottom: 1.25rem;">Rate your experience and help us make ATS.Analyze better.</p>
+            <div class="star-rating" data-target="roadmap">
+                <button type="button" class="star-btn" data-value="1" onclick="setStarRating('roadmap', 1)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="2" onclick="setStarRating('roadmap', 2)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="3" onclick="setStarRating('roadmap', 3)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="4" onclick="setStarRating('roadmap', 4)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="5" onclick="setStarRating('roadmap', 5)">&#9733;</button>
+            </div>
+            <div class="feedback-tags" id="roadmapTags">
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Accurate Score</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Great Roadmap</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Helpful YouTube Links</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Realistic Interview Questions</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Needs Improvement</button>
+            </div>
+            <textarea id="roadmapFeedbackText" rows="3" placeholder="Tell us what you liked or how we can improve..."></textarea>
+            <button type="button" class="cta-btn" onclick="submitAnalysisFeedback('roadmap')">Submit Feedback</button>
+            <p id="roadmapFeedbackStatus" class="feedback-status-msg hidden"></p>
+        </div>
+    </div>
     <div class="step-indicator">Step 6</div>
+</section>
+
+<!-- ── SECTION 7: Interview Prep & Real Questions ───────────────────────── -->
+<section class="page-section" id="section-interview-prep">
+    <div class="feedback-inner">
+        <p class="section-tag">Step 7 / Interview Preparation</p>
+        <h2>Real Interview Experiences &amp; Questions</h2>
+        <p class="subtitle">Questions and hiring insights gathered from real candidate experiences shared online for <strong id="interviewTargetCompany">your target company</strong>.</p>
+
+        <!-- Hiring process overview & candidate experience summary -->
+        <div class="interview-header-card" id="interviewHeaderCard">
+            <div class="process-box">
+                <h4>Hiring Process Overview</h4>
+                <p id="hiringProcessText">Typical interview rounds and format...</p>
+            </div>
+            <div class="experience-box">
+                <h4>Candidate Experience Summary</h4>
+                <p id="experienceSummaryText">Candidate debrief summary...</p>
+            </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="question-filters">
+            <button type="button" class="filter-btn active" onclick="filterInterviewQuestions('all', this)">All Questions</button>
+            <button type="button" class="filter-btn" onclick="filterInterviewQuestions('Coding & DSA', this)">Coding &amp; DSA</button>
+            <button type="button" class="filter-btn" onclick="filterInterviewQuestions('Technical & Core', this)">Technical &amp; Core</button>
+            <button type="button" class="filter-btn" onclick="filterInterviewQuestions('System Design', this)">System Design</button>
+            <button type="button" class="filter-btn" onclick="filterInterviewQuestions('Behavioral & Culture', this)">Behavioral &amp; Culture</button>
+        </div>
+
+        <!-- Questions container -->
+        <div id="interviewQuestionsCards" class="interview-questions-grid"></div>
+
+        <!-- Tips from real candidates -->
+        <div class="feedback-card" id="interviewTipsCard" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h4>Insider Tips from Real Candidates</h4>
+            </div>
+            <ul id="interviewTipsList"></ul>
+        </div>
+
+        <!-- Navigation actions -->
+        <div class="action-btn-row" style="margin-top: 2rem;">
+            <button class="cta-btn secondary" onclick="goTo('section-roadmap')">&larr; Back to Roadmap</button>
+            <button class="cta-btn secondary" onclick="resetApp()">Analyze Another Resume</button>
+        </div>
+
+        <!-- End of Analysis Feedback Card -->
+        <div class="feedback-submission-card" id="interviewFeedbackCard" style="margin-top: 3rem;">
+            <h3>Was this analysis helpful?</h3>
+            <p class="subtitle" style="margin-bottom: 1.25rem;">Rate your experience and help us make ATS.Analyze better.</p>
+            <div class="star-rating" data-target="interview">
+                <button type="button" class="star-btn" data-value="1" onclick="setStarRating('interview', 1)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="2" onclick="setStarRating('interview', 2)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="3" onclick="setStarRating('interview', 3)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="4" onclick="setStarRating('interview', 4)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="5" onclick="setStarRating('interview', 5)">&#9733;</button>
+            </div>
+            <div class="feedback-tags" id="interviewTags">
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Accurate Score</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Great Roadmap</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Helpful YouTube Links</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Realistic Interview Questions</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Needs Improvement</button>
+            </div>
+            <textarea id="interviewFeedbackText" rows="3" placeholder="Tell us what you liked or how we can improve..."></textarea>
+            <button type="button" class="cta-btn" onclick="submitAnalysisFeedback('interview')">Submit Feedback</button>
+            <p id="interviewFeedbackStatus" class="feedback-status-msg hidden"></p>
+        </div>
+    </div>
+    <div class="step-indicator">Step 7</div>
+</section>
+
+<!-- ── STANDALONE: Learning Resources Section ───────────────────────────── -->
+<section class="page-section" id="section-resources">
+    <div class="section-inner">
+        <p class="section-tag">Learning Hub</p>
+        <h2>Learning Resources &amp; YouTube Tutorials</h2>
+        <p class="subtitle">Search tutorials, crash courses, and guides for any skill or topic.</p>
+
+        <!-- Search Bar -->
+        <div class="resource-search-box">
+            <input type="text" id="resourceSearchInput" placeholder="e.g. Docker, Python DSA, React Hooks, System Design..." onkeydown="if(event.key==='Enter') searchTopicResources()">
+            <button type="button" class="cta-btn" onclick="searchTopicResources()" style="margin-top:0;">Find Resources</button>
+        </div>
+
+        <div id="dynamicResourceResults" class="resource-cards-grid"></div>
+
+        <div class="curated-resources-title" style="margin-top: 2rem;">
+            <h4>Popular Recommended Tracks</h4>
+        </div>
+        <div class="resource-cards-grid">
+            <div class="resource-card">
+                <h3>Python Programming</h3>
+                <p>Master fundamentals, OOP, async programming, and libraries.</p>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/results?search_query=python+programming+full+course" target="_blank" rel="noopener noreferrer" class="yt-link-btn">&#9654; YouTube Course</a>
+                    <a href="https://www.learnpython.org/" target="_blank" rel="noopener noreferrer" class="doc-link-btn">Official Docs</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h3>Data Structures &amp; Algorithms</h3>
+                <p>Arrays, Trees, Graphs, Dynamic Programming &amp; LeetCode practice.</p>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/results?search_query=data+structures+and+algorithms+tutorial" target="_blank" rel="noopener noreferrer" class="yt-link-btn">&#9654; YouTube Course</a>
+                    <a href="https://www.geeksforgeeks.org/data-structures/" target="_blank" rel="noopener noreferrer" class="doc-link-btn">GeeksforGeeks</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h3>Full Stack Web Development</h3>
+                <p>HTML, CSS, modern JavaScript, React, Node.js, and REST APIs.</p>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/results?search_query=full+stack+web+development+course" target="_blank" rel="noopener noreferrer" class="yt-link-btn">&#9654; YouTube Course</a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank" rel="noopener noreferrer" class="doc-link-btn">MDN Docs</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h3>System Design &amp; Architecture</h3>
+                <p>Scalability, microservices, caching, load balancers, and databases.</p>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/results?search_query=system+design+interview+crash+course" target="_blank" rel="noopener noreferrer" class="yt-link-btn">&#9654; YouTube Course</a>
+                    <a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener noreferrer" class="doc-link-btn">Design Primer</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="cta-btn secondary" onclick="goTo('section-hero')" style="margin-top: 2rem;">Back to Home</button>
+    </div>
+</section>
+
+<!-- ── STANDALONE: Company Profile Section ──────────────────────────────── -->
+<section class="page-section" id="section-company">
+    <div class="section-inner">
+        <p class="section-tag">Company Insights</p>
+        <h2>Company Profile &amp; Culture</h2>
+        <p class="subtitle">Explore work culture, technology stack, and hiring insights for any target company.</p>
+
+        <div class="resource-search-box">
+            <input type="text" id="companySearchInput" placeholder="e.g. Google, Microsoft, Amazon, Infosys, TCS, Deloitte..." onkeydown="if(event.key==='Enter') searchCompanyProfile()">
+            <button class="cta-btn" type="button" onclick="searchCompanyProfile()" style="margin-top:0;">Explore Company</button>
+        </div>
+
+        <div id="companySearchLoading" class="loading-state hidden">
+            <div class="pulse">&#9711;</div>
+            <p>Fetching company insights &amp; candidate experiences...</p>
+        </div>
+
+        <div id="companySearchResult" aria-live="polite"></div>
+
+        <button class="cta-btn secondary" onclick="goTo('section-hero')" style="margin-top: 2rem;">Back to Home</button>
+    </div>
+</section>
+
+<!-- ── STANDALONE: Interview Questions Section ──────────────────────────── -->
+<section class="page-section" id="section-interview">
+    <div class="section-inner">
+        <p class="section-tag">Interview Prep</p>
+        <h2>Real Interview Questions</h2>
+        <p class="subtitle">Practice questions asked in real interviews based on candidate experiences shared online.</p>
+
+        <div class="interview-standalone-inputs">
+            <div>
+                <label for="standaloneRoleSelect" class="input-label">Select Role</label>
+                <select id="standaloneRoleSelect" class="text-input">
+                    <option value="Software Engineer">Software Engineer / SDE</option>
+                    <option value="Python Developer">Python Developer</option>
+                    <option value="Frontend Developer">Frontend Developer (React / Web)</option>
+                    <option value="Backend Developer">Backend Developer (Node / Java / Go)</option>
+                    <option value="Data Analyst">Data Analyst</option>
+                    <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                    <option value="DevOps & Cloud Engineer">DevOps &amp; Cloud Engineer</option>
+                </select>
+            </div>
+            <div>
+                <label for="standaloneCompanyInput" class="input-label">Target Company (Optional)</label>
+                <input type="text" id="standaloneCompanyInput" placeholder="e.g. Google, Amazon, Infosys, etc." class="text-input" onkeydown="if(event.key==='Enter') searchInterviewQuestions()">
+            </div>
+        </div>
+
+        <button class="cta-btn" type="button" onclick="searchInterviewQuestions()">Show Questions &rarr;</button>
+
+        <div id="interviewSearchLoading" class="loading-state hidden">
+            <div class="pulse">&#9711;</div>
+            <p>Finding real interview questions from the web...</p>
+        </div>
+
+        <div id="standaloneInterviewQuestionsContainer" aria-live="polite" style="margin-top: 1.5rem;"></div>
+
+        <button class="cta-btn secondary" onclick="goTo('section-hero')" style="margin-top: 2rem;">Back to Home</button>
+    </div>
+</section>
+
+<!-- ── STANDALONE: Feedback Section ─────────────────────────────────────── -->
+<section class="page-section" id="section-user-feedback">
+    <div class="section-inner">
+        <p class="section-tag">Feedback</p>
+        <h2>Give Feedback</h2>
+        <p class="subtitle">Tell us what you loved or how we can make ATS.Analyze even better.</p>
+
+        <form id="standaloneFeedbackForm" class="standalone-feedback-form">
+            <label for="feedbackName" class="input-label">Your Name <span class="optional-pill">Optional</span></label>
+            <input type="text" id="feedbackName" placeholder="Enter your name" class="text-input">
+
+            <label class="input-label" style="margin-top: 1rem;">Your Rating</label>
+            <div class="star-rating" data-target="standalone">
+                <button type="button" class="star-btn" data-value="1" onclick="setStarRating('standalone', 1)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="2" onclick="setStarRating('standalone', 2)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="3" onclick="setStarRating('standalone', 3)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="4" onclick="setStarRating('standalone', 4)">&#9733;</button>
+                <button type="button" class="star-btn" data-value="5" onclick="setStarRating('standalone', 5)">&#9733;</button>
+            </div>
+            <input type="hidden" id="standaloneRatingValue" value="5">
+
+            <label class="input-label" style="margin-top: 1rem;">What stands out?</label>
+            <div class="feedback-tags" id="standaloneTags">
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Accurate Resume Score</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Helpful Learning Roadmap</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Great YouTube Tutorials</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Company &amp; Interview Insights</button>
+                <button type="button" class="tag-pill" onclick="toggleFeedbackTag(this)">Clean UI</button>
+            </div>
+
+            <label for="feedbackMessage" class="input-label" style="margin-top: 1rem;">Your Comments</label>
+            <textarea id="feedbackMessage" rows="4" placeholder="Write your feedback..." required class="text-input"></textarea>
+
+            <button class="cta-btn" type="submit">Submit Feedback</button>
+        </form>
+
+        <p id="feedbackStatus" class="feedback-status-msg hidden" aria-live="polite"></p>
+        <button class="cta-btn secondary" onclick="goTo('section-hero')" style="margin-top: 2rem;">Back to Home</button>
+    </div>
 </section>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
